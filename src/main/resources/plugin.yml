@@ -1,0 +1,28 @@
+name: WhiteLister
+version: '${project.version}'
+main: ink.shark.plugins.whitelister.WhiteLister
+api-version: '1.20'
+authors: [ sharkfly ]
+description: a whitelist management plugin!
+website: ink.shark.plugins
+commands:
+  wl:
+    description: main command for the whitelist
+    usage: "/<command> <add|remove|list> <player>"
+permissions:
+  wl.add:
+    description: allows a player to add a player to the whitelist
+  wl.remove:
+    description: allows a player to remove a player from the whitelist
+  wl.list:
+    description: allows a player to list all players on the whitelist
+  wl.bypasslimit:
+    description: allows a player to bypass the whitelist invites limit
+  wl.*:
+    description: allows a player to use all commands
+    default: op
+    children:
+      wl.add: true
+      wl.remove: true
+      wl.list: true
+      wl.bypasslimit: true
